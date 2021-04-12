@@ -11,7 +11,6 @@ from sb3_contrib.ppo_mask import MaskedPPO
 
 SEED = 721
 
-NUM_TIMESTEPS = 100000
 EVAL_FREQ = 10000
 EVAL_EPISODES = 200
 
@@ -19,8 +18,9 @@ EVAL_EPISODES = 200
 @click.command()
 @click.argument("output_folder", type=click.Path())
 @click.option("--load", "-l", "load_path")
+@click.option("--timesteps", default=100000)
 @click.option("--mask/--no-mask", "use_masking", default=False)
-def train(output_folder, load_path, use_masking):
+def train(output_folder, load_path, timesteps, use_masking):
     base_output = Path(output_folder)
     full_output = base_output / datetime.datetime.now().isoformat(timespec="seconds")
 
@@ -53,7 +53,7 @@ def train(output_folder, load_path, use_masking):
     )
 
     try:
-        model.learn(total_timesteps=NUM_TIMESTEPS, callback=eval_callback)
+        model.learn(total_timesteps=timesteps, callback=eval_callback)
     except Exception:
         import pdb
 
