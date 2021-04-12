@@ -11,3 +11,38 @@
 ## Testing
 
 `python test.py [--mask-1 / --no-mask-1] [--mask-2 / --no-mask-2] MODEL_1_PATH MODEL_2_PATH`
+
+## Experiments
+
+### Masked (training and testing) vs unmasked
+
+Train an agent with masking: `python train.py --mask zoo/mask`
+
+Train an agent without masking: `python train.py --no-mask zoo/no_mask`
+
+Play the two agents against each other, with masking still enabled for the agent that was trained with them:
+```
+python test.py zoo/mask/latest/final_model.zip zoo/no_mask/latest/final_model.zip --mask-1
+```
+
+### Masked (training only) vs unmasked
+
+Train an agent with masking: `python train.py --mask zoo/mask`
+
+Train an agent without masking: `python train.py --no-mask zoo/no_mask`
+
+Play the two agents against each other, with masking disabled for the agent that was trained with them:
+```
+python test.py zoo/mask/latest/final_model.zip zoo/no_mask/latest/final_model.zip
+```
+
+### Masked (training and testing) vs masked (testing only)
+
+Train an agent with masking: `python train.py --mask zoo/mask`
+
+Train an agent without masking: `python train.py --no-mask zoo/no_mask`
+
+Play the two agents against each other, with masking enabled for both agents:
+```
+python test.py zoo/mask/latest/final_model.zip zoo/no_mask/latest/final_model.zip --mask-1 --mask-2
+```
