@@ -42,6 +42,7 @@ def train(output_folder, load_path, timesteps, use_masking):
             verbose=1,
             use_masking=use_masking,
             policy_kwargs={"net_arch": [dict(pi=[16, 16], vf=[16, 16])]},
+            tensorboard_log=str(full_output),
         )
 
     eval_callback = MaskableEvalCallback(
