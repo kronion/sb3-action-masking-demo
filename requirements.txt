@@ -1,5 +1,5 @@
 click==7.1.2
-gym-quarto @ git+ssh://git@github.com/kronion/gym-quarto.git@601795e  # Pin to known working commit
+gym-quarto @ git+ssh://git@github.com/kronion/gym-quarto.git@48d6fdc  # Pin to known working commit
 sb3-contrib @ git+ssh://git@github.com/kronion/stable-baselines3-contrib.git@feat/invalid-action-masking
 torch==1.7.1  # Can't upgrade to 1.8 until pytorch supports CUDA 11.2. See https://github.com/pytorch/pytorch/issues/50232
 tensorboard==2.4.1
