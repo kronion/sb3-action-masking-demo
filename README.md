@@ -49,8 +49,8 @@ python demo.py test zoo/mask/latest/final_model.zip zoo/no_mask/latest/final_mod
 
 ## Visualizations
 
-We provide TensorBoard run data for two models trained for 2M+ timesteps, one with masking and one without.
+We provide TensorBoard run data for two models trained for 4M timesteps, one with masking and one without.
 To view the data:
 ```
-tensorboard --logdir_spec long:zoo/long/latest/PPO_1,prev:zoo/long_mask/latest/PPO_1
+tensorboard --logdir_spec vanilla:zoo/long/refactored/latest/PPO_1,masked:zoo/long_mask/refactored/latest/PPO_1
 ```
